@@ -14,7 +14,15 @@ O **EventUp** é um aplicativo desenvolvido com **React** e **Vite**, projetado 
 
 ## 📦 Instalação e Execução
 
-1. Clone o repositório:
-```bash
-git clone https://github.com/Guilherme-Borges-Silva/eventup-guilherme.git
-cd eventup-guilherme
+1. Clone o repositório e entre na pasta:
+    
+       git clone https://github.com/Guilherme-Borges-Silva/eventup-guilherme.git
+       cd eventup-guilherme
+
+2. Instale as dependências:
+    
+       npm install
+
+3. Inicie o servidor de desenvolvimento:
+    
+       npm run dev
