@@ -1,5 +1,7 @@
 # 🎉 EventUp - Aplicativo de Eventos
 
+![EventUp](./eventup.png)
+
 ## Descrição
 O **EventUp** é um aplicativo desenvolvido com **React** e **Vite**, projetado para gerenciar eventos de forma intuitiva. Ele permite que os usuários visualizem, adicionem e excluam eventos, facilitando o planejamento e organização de atividades.
 
