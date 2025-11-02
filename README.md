@@ -11,6 +11,7 @@ O **EventUp** é um aplicativo desenvolvido com **React** e **Vite**, projetado 
 - **React**: Biblioteca JavaScript para construção de interfaces de usuário.
 - **Vite**: Ferramenta de build moderna e rápida para desenvolvimento front-end.
 - **CSS**: Estilização da interface.
+- **Ticketmaster API** — Fonte de dados em tempo real sobre eventos públicos (shows, esportes, teatro e muito mais).  
 
 ---
 
@@ -28,3 +29,15 @@ O **EventUp** é um aplicativo desenvolvido com **React** e **Vite**, projetado 
 3. Inicie o servidor de desenvolvimento:
     
        npm run dev
+
+---
+
+## Variáveis de ambiente
+
+O projeto já inclui um arquivo `.env` com a chave da Ticketmaster API. Caso ocorra algum erro relacionado à API (por exemplo, falha de autenticação), crie ou edite o arquivo `.env` na pasta `projeto-eventup` com o seguinte conteúdo:
+
+VITE_TICKETMASTER_KEY=sua_chave_api_ticketmaster_aqui
+
+## Requisitos
+
+- Node.js 16+ (ou versão usada no desenvolvimento)

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Header({ onNavigate, currentPage }) {
+export default function Header({ onNavigate, currentPage, favoritesCount = 0 }) {
   return (
     <header className="header">
       <h1>EventUp</h1>
@@ -15,7 +15,7 @@ export default function Header({ onNavigate, currentPage }) {
           onClick={() => onNavigate('favorites')}
           className={currentPage === 'favorites' ? 'active' : ''}
         >
-          Favoritos
+          Favoritos {favoritesCount > 0 && <span className="favorites-count">({favoritesCount})</span>}
         </button>
       </nav>
     </header>

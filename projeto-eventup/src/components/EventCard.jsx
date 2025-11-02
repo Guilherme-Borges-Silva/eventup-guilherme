@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function EventCard({ event }) {
-  const [isFavorited, setIsFavorited] = useState(false);
+export default function EventCard({ event, onViewDetails, onToggleFavorite, isFavorite }) {
+  const isFavorited = isFavorite && isFavorite(event.id);
 
-  const toggleFavorite = () => {
-    setIsFavorited(!isFavorited);
+  const handleToggleFavorite = (e) => {
+    e.stopPropagation();
+    if (onToggleFavorite) {
+      onToggleFavorite(event);
+    }
   };
 
   return (
@@ -13,7 +16,7 @@ export default function EventCard({ event }) {
         <div className="event-category">{event.category}</div>
         <button 
           className={`favorite-btn ${isFavorited ? 'favorited' : ''}`}
-          onClick={toggleFavorite}
+          onClick={handleToggleFavorite}
           title={isFavorited ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}
         >
           {isFavorited ? '❤️' : '🤍'}
@@ -26,7 +29,12 @@ export default function EventCard({ event }) {
         <p className="event-location">📍 {event.location}</p>
       </div>
       <p className="event-description">{event.description}</p>
-      <button className="details-btn">Ver Detalhes</button>
+      <button 
+        className="details-btn"
+        onClick={() => onViewDetails(event)}
+      >
+        Ver Detalhes
+      </button>
     </div>
   );
 }
