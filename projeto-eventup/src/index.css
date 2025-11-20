@@ -30,20 +30,106 @@ body {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   color: #333;
-  padding: 24px;
-  text-align: center;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.header h1 {
-  margin: 0 0 1rem 0;
-  font-size: 40px;
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+}
+
+.logo-area {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-align: center;
+}
+
+.logo-area h1 {
+  margin: 0;
+  font-size: 36px;
   font-weight: 700;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.logo-area .tagline {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  height: 2px;
+  width: 24px;
+  background: #667eea;
+  border-radius: 2px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navigation a {
+  color: #333;
+  text-decoration: none;
+  background: transparent;
+  border: 2px solid rgba(102, 126, 234, 0.3);
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation a:hover {
+  background: rgba(102, 126, 234, 0.1);
+  border-color: rgba(102, 126, 234, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+}
+
+.navigation a.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
 .footer {
@@ -52,53 +138,6 @@ body {
   padding: 1rem;
   text-align: center;
   margin-top: auto;
-}
-
-nav a, nav button {
-  margin: 0 0.5rem;
-  color: #333;
-  text-decoration: none;
-  background: transparent;
-  border: 2px solid rgba(102, 126, 234, 0.3);
-  padding: 12px 24px;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-weight: 500;
-  font-size: 16px;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-  position: relative;
-  overflow: hidden;
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-nav button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
-}
-
-nav button:active {
-  transform: translateY(0);
-  outline: none;
-}
-
-nav button:hover {
-  background: rgba(102, 126, 234, 0.1);
-  border-color: rgba(102, 126, 234, 0.6);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
-}
-
-nav button.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-color: transparent;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
 }
 
 .favorites-count {
@@ -553,18 +592,56 @@ nav button.active {
 @media (max-width: 767px) {
   .header {
     padding: 16px;
+    gap: 12px;
   }
   
-  .header h1 {
-    font-size: 28.8px;
-    margin-bottom: 8px;
+  .header-top {
+    width: 100%;
+    justify-content: center;
   }
   
-  nav a, nav button {
-    padding: 9.6px 16px;
-    font-size: 14.4px;
-    margin: 0 4.8px;
-    min-height: 44px;
+  .logo-area {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logo-area h1 {
+    font-size: 28px;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 0;
+  }
+
+  .navigation {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    padding: 0 0;
+  }
+
+  .navigation.open {
+    max-height: 240px;
+    padding: 12px 0;
+  }
+
+  .navigation a {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
   }
   
   .page-header {
@@ -686,6 +763,45 @@ nav button.active {
 
   input, textarea, select {
     font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .header-top {
+    flex: 1;
+    gap: 12px;
+  }
+
+  .logo-area {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .navigation {
+    width: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    max-height: none;
+    overflow: visible;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .navigation.open {
+    max-height: none;
+    padding: 0;
+  }
+
+  .mobile-menu-toggle {
+    display: none;
   }
 }
 

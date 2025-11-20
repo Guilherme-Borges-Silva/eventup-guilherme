@@ -4,6 +4,28 @@ Backlog de atividades planejadas para as próximas entregas do projeto EventUp.
 
 ---
 
+## Atualização Pós-Sprint
+
+### Expectativa do Cliente
+- Manter um **menu de navegação claro entre Home e Favoritos**.
+- **Implementar gestos dedicados** no mobile e seguir rumo a uma experiência de app nativo.
+- **Adotar React Testing Library** para garantir qualidade antes da liberação final.
+
+### Entregas do TP4
+- Menu responsivo com links ativos e contador de favoritos.
+- Hook `useGestureNavigation` habilitando swipes (Home ⇄ Favoritos e voltar dos detalhes).
+- Primeira bateria de testes com **Vitest + RTL** cobrindo navegação via menu e gestos.
+- Protótipo inicial para reutilizar lógica no app mobile (Expo).
+
+### Plano TP5 (ordenado por prioridade)
+1. Finalizar tela inicial no **Expo** consumindo os mesmos eventos do web e replicando os gestos.
+2. Padronizar navegação (menus e gestures) entre web e mobile, garantindo acessibilidade.
+3. Expandir a suíte de testes (favoritos, detalhes e fluxos de erro) usando React Testing Library.
+4. Ajustar documentação e onboarding para o cenário web + mobile (README e guias rápidos).
+5. Validar a experiência mobile em dispositivos reais e registrar feedbacks do usuário.
+
+---
+
 ## 1. Funcionalidades Pendentes
 
 ### 1.1 Busca e Filtros
@@ -30,7 +52,13 @@ Backlog de atividades planejadas para as próximas entregas do projeto EventUp.
 - [ ] Adicionar paginação na lista de eventos
 - [ ] Implementar botão "Carregar mais eventos"
 - [ ] Adicionar indicador de quantidade total de eventos
-- [ ] Melhorar navegação entre páginas
+- [x] Melhorar navegação entre páginas
+
+### 1.5 Experiência Mobile Nativa
+- [x] Mapear gestos essenciais (swipe horizontal e vertical)
+- [ ] Publicar o app Expo com as telas principais
+- [ ] Integrar favoritos e detalhes na versão mobile
+- [ ] Ajustar navegação para padrões nativos (stack/tab)
 
 ---
 
@@ -94,7 +122,7 @@ Backlog de atividades planejadas para as próximas entregas do projeto EventUp.
 ### 4.1 Testes Básicos
 - [ ] Criar testes para os principais componentes
 - [ ] Testar funções de favoritar/desfavoritar
-- [ ] Testar navegação entre páginas
+- [x] Testar navegação entre páginas
 - [ ] Verificar se a integração com API funciona corretamente
 
 ### 4.2 Testes Manuais
@@ -108,16 +136,15 @@ Backlog de atividades planejadas para as próximas entregas do projeto EventUp.
 ## 5. Documentação
 
 ### 5.1 Documentação do Projeto
-- [ ] Atualizar README com novas funcionalidades
-- [ ] Documentar como usar a aplicação
-- [ ] Explicar como configurar o ambiente de desenvolvimento
-- [ ] Adicionar informações sobre as tecnologias usadas
+- [x] Atualizar README com novas funcionalidades
+- [x] Documentar como usar a aplicação
+- [x] Explicar como configurar o ambiente de desenvolvimento
+- [x] Adicionar informações sobre as tecnologias usadas
 
 ### 5.2 Documentação do Código
 - [ ] Adicionar comentários explicativos no código
 - [ ] Documentar funções principais
 - [ ] Explicar a estrutura de pastas
-- [ ] Criar guia básico de contribuição
 
 ---
 
@@ -158,17 +185,17 @@ Backlog de atividades planejadas para as próximas entregas do projeto EventUp.
 ## Priorização
 
 ### Alta Prioridade (Próximas Entregas)
-1. Busca e filtros básicos
-2. Melhorias na visualização de eventos
-3. Paginação na lista de eventos
-4. Testes básicos dos componentes principais
+1. Consolidar app mobile (Expo) com gestos equivalentes ao web
+2. Expandir testes automatizados com React Testing Library
+3. Ajustar documentação para web + mobile
+4. Sistema de autenticação
 5. Melhorias na responsividade mobile
 
 ### Média Prioridade
 1. Funcionalidades de evento (inscrever-se, compartilhar)
 2. Melhorias de performance
-3. Documentação do projeto
-4. Tratamento de erros melhorado
+3. Tratamento de erros melhorado
+4. Busca e filtros básicos
 5. Melhorias visuais e de UX
 
 ### Baixa Prioridade (Futuro)

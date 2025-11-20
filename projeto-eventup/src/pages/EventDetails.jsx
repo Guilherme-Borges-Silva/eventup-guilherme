@@ -59,7 +59,7 @@ export default function EventDetails({ event, onBack, onToggleFavorite, isFavori
         <div className="event-details-sidebar">
           <div className="action-card">
             <h3>Interessado no evento?</h3>
-            {isFavorite && (
+            {typeof isFavorite === 'function' && (
               <button 
                 className={`cta-button ${isFavorite(event.id) ? 'favorited' : ''}`}
                 onClick={() => onToggleFavorite && onToggleFavorite(event)}

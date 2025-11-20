@@ -3,7 +3,7 @@
 ![EventUp](./eventup-print.png)
 
 ## Descrição
-O **EventUp** é um aplicativo desenvolvido com **React** e **Vite**, projetado para gerenciar eventos de forma intuitiva. Ele permite que os usuários visualizem, adicionem e excluam eventos, facilitando o planejamento e organização de atividades.
+O **EventUp** é um aplicativo desenvolvido com **React** e **Vite**, projetado para gerenciar eventos de forma intuitiva. Ele permite visualizar, favoritar e detalhar eventos usando um menu de navegação entre páginas e conta com gestos dedicados no mobile para alternar telas, mantendo o comportamento de um app nativo. A mesma base alimenta a versão mobile construída em **React Native/Expo**, garantindo continuidade total entre web e aplicativo nativo.
 
 ---
 
@@ -11,7 +11,9 @@ O **EventUp** é um aplicativo desenvolvido com **React** e **Vite**, projetado 
 - **React**: Biblioteca JavaScript para construção de interfaces de usuário.
 - **Vite**: Ferramenta de build moderna e rápida para desenvolvimento front-end.
 - **CSS**: Estilização da interface.
-- **Ticketmaster API** — Fonte de dados em tempo real sobre eventos públicos (shows, esportes, teatro e muito mais).  
+- **Ticketmaster API** — Fonte de dados em tempo real sobre eventos públicos (shows, esportes, teatro e muito mais).
+- **React Testing Library + Vitest** — Cobertura de navegação (menu e gestos) garantindo estabilidade dos fluxos principais.
+- **React Native / Expo** — Versão mobile nativa com os mesmos recursos de listagem, detalhes, favoritos e gestos implementados no web.
 
 ---
 
@@ -29,6 +31,10 @@ O **EventUp** é um aplicativo desenvolvido com **React** e **Vite**, projetado 
 3. Inicie o servidor de desenvolvimento:
     
        npm run dev
+
+4. Execute os testes de navegação e gestos (opcional):
+
+       npm run test
 
 ---
 
