@@ -1,4 +1,5 @@
 import React from "react";
+import { formatDistance } from "../hooks/useGeolocation";
 
 export default function EventCard({ event, onViewDetails, onToggleFavorite, isFavorite }) {
   const isFavorited = isFavorite && isFavorite(event.id);
@@ -26,7 +27,14 @@ export default function EventCard({ event, onViewDetails, onToggleFavorite, isFa
       <div className="event-info">
         <p className="event-date">📅 {event.date}</p>
         <p className="event-time">🕒 {event.time}</p>
-        <p className="event-location">📍 {event.location}</p>
+        <p className="event-location">
+          📍 {event.location}
+        </p>
+        {event.distance !== null && event.distance !== undefined && (
+          <div className="event-distance-badge">
+            <span className="distance-text">{formatDistance(event.distance)}</span>
+          </div>
+        )}
       </div>
       <p className="event-description">{event.description}</p>
       <button 

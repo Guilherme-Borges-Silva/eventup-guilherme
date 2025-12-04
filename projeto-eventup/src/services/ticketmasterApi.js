@@ -1,7 +1,7 @@
 const API_BASE_URL = 'https://app.ticketmaster.com/discovery/v2';
 const API_KEY = import.meta.env.VITE_TICKETMASTER_API_KEY || 'DEMO_KEY';
 
-export async function fetchEvents({ countryCode = 'BR', size = 20, keyword = '' } = {}) {
+export async function fetchEvents({ countryCode = 'BR', size = 20, keyword = '', classificationName = '' } = {}) {
   try {
     const url = new URL(`${API_BASE_URL}/events.json`);
     url.searchParams.append('apikey', API_KEY);
@@ -11,6 +11,10 @@ export async function fetchEvents({ countryCode = 'BR', size = 20, keyword = '' 
     
     if (keyword) {
       url.searchParams.append('keyword', keyword);
+    }
+
+    if (classificationName) {
+      url.searchParams.append('classificationName', classificationName);
     }
 
     const response = await fetch(url.toString());
@@ -71,6 +75,9 @@ function formatEvents(events) {
       location += ` - ${city}`;
     }
 
+    const latitude = venue.location?.latitude ? parseFloat(venue.location.latitude) : null;
+    const longitude = venue.location?.longitude ? parseFloat(venue.location.longitude) : null;
+
     const classification = event.classifications?.[0]?.segment?.name || 
                           event.classifications?.[0]?.genre?.name || 
                           'Evento';
@@ -90,6 +97,8 @@ function formatEvents(events) {
       category: classification,
       imageUrl: image?.url || null,
       url: event.url || null,
+      latitude,
+      longitude,
       _raw: event
     };
   });

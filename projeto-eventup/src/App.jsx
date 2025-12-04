@@ -5,28 +5,34 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import EventDetails from "./pages/EventDetails";
+import Login from "./pages/Login";
+import ProtectedRoute from "./components/ProtectedRoute";
 import { useGestureNavigation } from "./hooks/useGestureNavigation";
-
-const STORAGE_KEY = 'eventup_favorites';
+import { useAuth } from "./contexts/AuthContext";
 
 export default function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const mainRef = useRef(null);
+  const { isAuthenticated, user, logout: authLogout, loadUserFavorites, saveUserFavorites } = useAuth();
 
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [favorites, setFavorites] = useState(() => {
-    try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      return saved ? JSON.parse(saved) : [];
-    } catch {
-      return [];
-    }
-  });
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
-  }, [favorites]);
+    if (isAuthenticated && user?.email) {
+      const userFavorites = loadUserFavorites(user.email);
+      setFavorites(userFavorites);
+    } else {
+      setFavorites([]);
+    }
+  }, [isAuthenticated, user, loadUserFavorites]);
+
+  useEffect(() => {
+    if (isAuthenticated && user?.email) {
+      saveUserFavorites(user.email, favorites);
+    }
+  }, [favorites, isAuthenticated, user, saveUserFavorites]);
 
   const toggleFavorite = useCallback((event) => {
     setFavorites(prevFavorites => {
@@ -38,6 +44,12 @@ export default function App() {
   }, []);
 
   const isFavorite = useCallback((eventId) => favorites.some(fav => fav.id === eventId), [favorites]);
+
+  const handleLogout = useCallback(() => {
+    authLogout(favorites);
+    setFavorites([]);
+    navigate('/');
+  }, [authLogout, favorites, navigate]);
 
   const handleViewDetails = useCallback((event) => {
     setSelectedEvent(event);
@@ -79,6 +91,7 @@ export default function App() {
       <Header 
         currentPage={currentPage}
         favoritesCount={favorites.length}
+        onLogout={handleLogout}
       />
       <main ref={mainRef} data-testid="app-main" className="main-content">
         <Routes>
@@ -93,25 +106,33 @@ export default function App() {
             } 
           />
           <Route 
+            path="/login" 
+            element={<Login />} 
+          />
+          <Route 
             path="/favorites" 
             element={
-              <Favorites 
-                favorites={favorites}
-                onViewDetails={handleViewDetails}
-                onToggleFavorite={toggleFavorite}
-                isFavorite={isFavorite}
-              />
+              <ProtectedRoute>
+                <Favorites 
+                  favorites={favorites}
+                  onViewDetails={handleViewDetails}
+                  onToggleFavorite={toggleFavorite}
+                  isFavorite={isFavorite}
+                />
+              </ProtectedRoute>
             } 
           />
           <Route 
             path="/event/:eventId" 
             element={
-              <EventDetails 
-                event={eventForDetails}
-                onBack={handleBack}
-                onToggleFavorite={toggleFavorite}
-                isFavorite={isFavorite}
-              />
+              <ProtectedRoute>
+                <EventDetails 
+                  event={eventForDetails}
+                  onBack={handleBack}
+                  onToggleFavorite={toggleFavorite}
+                  isFavorite={isFavorite}
+                />
+              </ProtectedRoute>
             } 
           />
           <Route path="*" element={<Navigate to="/" replace />} />

@@ -1,4 +1,4 @@
-# Backlog - EventUp
+# Backlog - EventUp  
 
 Backlog de atividades planejadas para as próximas entregas do projeto EventUp.
 
@@ -8,110 +8,94 @@ Backlog de atividades planejadas para as próximas entregas do projeto EventUp.
 
 ### Expectativa do Cliente
 - Manter um **menu de navegação claro entre Home e Favoritos**.
-- **Implementar gestos dedicados** no mobile e seguir rumo a uma experiência de app nativo.
-- **Adotar React Testing Library** para garantir qualidade antes da liberação final.
-
-### Entregas do TP4
-- Menu responsivo com links ativos e contador de favoritos.
-- Hook `useGestureNavigation` habilitando swipes (Home ⇄ Favoritos e voltar dos detalhes).
-- Primeira bateria de testes com **Vitest + RTL** cobrindo navegação via menu e gestos.
-- Protótipo inicial para reutilizar lógica no app mobile (Expo).
-
-### Plano TP5 (ordenado por prioridade)
-1. Finalizar tela inicial no **Expo** consumindo os mesmos eventos do web e replicando os gestos.
-2. Padronizar navegação (menus e gestures) entre web e mobile, garantindo acessibilidade.
-3. Expandir a suíte de testes (favoritos, detalhes e fluxos de erro) usando React Testing Library.
-4. Ajustar documentação e onboarding para o cenário web + mobile (README e guias rápidos).
-5. Validar a experiência mobile em dispositivos reais e registrar feedbacks do usuário.
+- Evoluir a experiência mobile para algo mais próximo de um app nativo.
+- Futuramente adotar **React Testing Library** para garantir qualidade.
 
 ---
 
-## 1. Funcionalidades Pendentes
+## 1. Funcionalidades Pendentes / Entregues
 
 ### 1.1 Busca e Filtros
-- [ ] Adicionar campo de busca para pesquisar eventos por nome
-- [ ] Criar filtros para buscar eventos por categoria
-- [ ] Adicionar filtro por data (eventos futuros, passados, por período)
-- [ ] Implementar filtro por cidade/localização
-- [ ] Adicionar opção para ordenar eventos (por data, alfabética, etc)
+- [X] Adicionar campo de busca para pesquisar eventos por nome
+- [X] Criar filtros para buscar eventos (categoria)
+- [X] Implementar compartilhamento em redes sociais
+- [X] Implementar filtro por cidade/localização
 
 ### 1.2 Melhorias na Visualização
-- [ ] Mostrar imagens dos eventos nos cards (quando disponível na API)
-- [ ] Adicionar página de detalhes mais completa com mais informações
-- [ ] Melhorar layout dos cards de eventos
-- [ ] Adicionar informações de preço quando disponível
-- [ ] Mostrar número de vagas ou ingressos disponíveis
+- [X] Adicionar página de detalhes com mais informações
+- [X] Melhorar layout dos cards de eventos
+- [ ] Adicionar informações de preço quando disponível (API não fornece)
+- [ ] Mostrar número de vagas ou ingressos disponíveis (API não fornece)
 
 ### 1.3 Funcionalidades de Evento
-- [ ] Tornar o botão "Inscrever-se" funcional (salvar interesse)
-- [ ] Implementar funcionalidade de compartilhar evento
-- [ ] Adicionar link para compra de ingressos (se disponível na API)
-- [ ] Criar notificações de lembrete para eventos favoritos
+- [X] Criar funcionalidade de favoritar eventos
+- [X] Criar tela/lista de eventos favoritos
+- [ ] Tornar o botão "Inscrever-se" funcional
+- [ ] Adicionar link para compra de ingressos (quando API permitir)
 
 ### 1.4 Paginação e Navegação
-- [ ] Adicionar paginação na lista de eventos
-- [ ] Implementar botão "Carregar mais eventos"
+- [X] Adicionar paginação na lista de eventos
 - [ ] Adicionar indicador de quantidade total de eventos
-- [x] Melhorar navegação entre páginas
+- [X] Melhorar navegação entre páginas
 
 ### 1.5 Experiência Mobile Nativa
 - [x] Mapear gestos essenciais (swipe horizontal e vertical)
-- [ ] Publicar o app Expo com as telas principais
-- [ ] Integrar favoritos e detalhes na versão mobile
-- [ ] Ajustar navegação para padrões nativos (stack/tab)
+- [X] Integrar favoritos e detalhes na versão mobile
+- [X] Ajustar navegação para padrões nativos
 
 ---
 
 ## 2. Melhorias Técnicas
 
 ### 2.1 Organização do Código
+- [x] Organizar estrutura principal de páginas e componentes
 - [ ] Separar melhor as responsabilidades dos componentes
 - [ ] Criar hooks customizados para lógica reutilizável
-- [ ] Organizar melhor a estrutura de pastas
-- [ ] Melhorar nomes de variáveis e funções
+- [X] Melhorar nomes de variáveis e funções
 
 ### 2.2 Performance
-- [ ] Otimizar carregamento inicial da aplicação
-- [ ] Melhorar tempo de resposta ao buscar eventos
+- [X] Otimizar carregamento inicial da aplicação
+- [X] Melhorar tempo de resposta ao buscar eventos
 - [ ] Otimizar imagens e recursos estáticos
 - [ ] Adicionar cache para eventos já carregados
 
 ### 2.3 Tratamento de Erros
-- [ ] Melhorar mensagens de erro para o usuário
-- [ ] Adicionar tratamento quando a API não responder
-- [ ] Validar dados antes de exibir na tela
-- [ ] Mostrar feedback quando não houver eventos
+- [X] Melhorar mensagens de erro para o usuário
+- [x] Exibir fallback quando o evento não existir
+- [X] Adicionar tratamento quando a API não responder
+- [X] Mostrar feedback quando não houver eventos
 
 ### 2.4 Validação
-- [ ] Validar dados recebidos da API
-- [ ] Verificar se os dados estão completos antes de exibir
-- [ ] Adicionar validação em campos de busca e filtros
+- [X] Validar dados recebidos da API
+- [X] Verificar se os dados estão completos antes de exibir
+- [X] Adicionar validação em campos de busca e filtros
 
 ---
 
 ## 3. Interface e Experiência do Usuário
 
 ### 3.1 Design Visual
-- [ ] Melhorar cores e tipografia
-- [ ] Adicionar animações simples nas transições
-- [ ] Criar estados visuais melhores (hover, active, etc)
-- [ ] Adicionar mais ícones e elementos visuais
+- [X] Melhorar cores e tipografia
+- [X] Adicionar animações nas transições
+- [X] Criar estados visuais melhores (hover, active, etc)
+- [X] Adicionar mais ícones e elementos visuais
 
 ### 3.2 Responsividade
-- [ ] Melhorar visualização em tablets
-- [ ] Otimizar ainda mais para dispositivos móveis
-- [ ] Testar em diferentes tamanhos de tela
-- [ ] Garantir que todos os elementos sejam clicáveis no mobile
+- [X] Responsividade geral implementada
+- [X] Melhorar visualização em tablets
+- [X] Otimizar ainda mais para dispositivos móveis
+- [X] Testar em diferentes tamanhos de tela
+- [X] Garantir que todos os elementos sejam clicáveis no mobile
 
 ### 3.3 Feedback ao Usuário
-- [ ] Mostrar mensagens de sucesso ao favoritar evento
-- [ ] Adicionar confirmação ao remover favorito
-- [ ] Melhorar indicadores de carregamento
-- [ ] Adicionar mensagens informativas quando necessário
+- [X] Mostrar mensagens ao favoritar evento (alert)
+- [X] Adicionar confirmação ao remover favorito
+- [X] Melhorar indicadores de carregamento
+- [X] Adicionar mensagens informativas adicionais
 
 ### 3.4 Acessibilidade
-- [ ] Adicionar textos alternativos em imagens
-- [ ] Melhorar contraste de cores
+- [ ] Adicionar textos alternativos em imagens (API não fornece)
+- [X] Melhorar contraste de cores
 - [ ] Garantir navegação por teclado
 - [ ] Adicionar descrições para elementos interativos
 
@@ -120,47 +104,47 @@ Backlog de atividades planejadas para as próximas entregas do projeto EventUp.
 ## 4. Testes
 
 ### 4.1 Testes Básicos
-- [ ] Criar testes para os principais componentes
-- [ ] Testar funções de favoritar/desfavoritar
-- [x] Testar navegação entre páginas
-- [ ] Verificar se a integração com API funciona corretamente
+- [X] Criar testes para os principais componentes
+- [X] Testar funções de favoritar/desfavoritar
+- [x] Testar navegação entre páginas (fluxo manual validado)
+- [X] Verificar integração com API
 
 ### 4.2 Testes Manuais
-- [ ] Testar em diferentes navegadores (Chrome, Firefox, Edge)
-- [ ] Testar em dispositivos móveis
-- [ ] Validar todos os fluxos principais da aplicação
-- [ ] Testar casos de erro (sem internet, API indisponível)
+- [x] Testar em diferentes navegadores (Chrome, Firefox, Edge)
+- [x] Testar em dispositivos móveis
+- [x] Validar todos os fluxos principais da aplicação
+- [X] Testar casos de erro (sem internet, API indisponível)
 
 ---
 
 ## 5. Documentação
 
 ### 5.1 Documentação do Projeto
-- [x] Atualizar README com novas funcionalidades
+- [x] Atualizar README com funcionalidades
 - [x] Documentar como usar a aplicação
-- [x] Explicar como configurar o ambiente de desenvolvimento
-- [x] Adicionar informações sobre as tecnologias usadas
+- [x] Explicar como configurar ambiente
+- [x] Adicionar informações sobre tecnologias usadas
 
 ### 5.2 Documentação do Código
-- [ ] Adicionar comentários explicativos no código
-- [ ] Documentar funções principais
-- [ ] Explicar a estrutura de pastas
+- [x] Adicionar comentários explicativos
+- [x] Documentar funções principais
+- [x] Explicar a estrutura de pastas
 
 ---
 
 ## 6. Deploy e Publicação
 
 ### 6.1 Preparação para Deploy
-- [ ] Otimizar build de produção
-- [ ] Configurar variáveis de ambiente
-- [ ] Testar build local antes de publicar
-- [ ] Preparar arquivos para publicação
+- [x] Otimizar build de produção
+- [x] Configurar variáveis de ambiente
+- [x] Testar build local
+- [x] Preparar arquivos para publicação
 
-### 6.2 Publicação
-- [ ] Escolher plataforma de hospedagem (Netlify, Vercel, etc)
-- [ ] Configurar deploy automático
-- [ ] Publicar aplicação online
-- [ ] Testar aplicação publicada
+### 6.2 Publicação (Futuro)
+- [ ] Escolher plataforma de hospedagem  
+- [ ] Configurar deploy automático  
+- [ ] Publicar aplicação online  
+- [ ] Testar aplicação publicada  
 
 ---
 
@@ -169,54 +153,51 @@ Backlog de atividades planejadas para as próximas entregas do projeto EventUp.
 ### 7.1 Funcionalidades Avançadas
 - [ ] Adicionar modo escuro (dark mode)
 - [ ] Permitir criar eventos personalizados
-- [ ] Adicionar comentários/avaliações nos eventos
+- [ ] Adicionar comentários/avaliações
 - [ ] Criar sistema de recomendações
-- [ ] Adicionar integração com calendário
+- [ ] Integração com calendário
 
 ### 7.2 Melhorias Extras
-- [ ] Implementar PWA (aplicativo instalável)
+- [ ] Implementar PWA
 - [ ] Adicionar notificações
-- [ ] Criar sistema de usuários/login
-- [ ] Adicionar exportar eventos para PDF
-- [ ] Implementar compartilhamento em redes sociais
+- [ ] Exportar eventos para PDF
+- [ ] Mostrar imagens adicionais nos cards
 
 ---
 
 ## Priorização
 
-### Alta Prioridade (Próximas Entregas)
-1. Consolidar app mobile (Expo) com gestos equivalentes ao web
-2. Expandir testes automatizados com React Testing Library
-3. Ajustar documentação para web + mobile
-4. Sistema de autenticação
-5. Melhorias na responsividade mobile
+### Alta Prioridade
+1. Paginação / carregamento   
+2. Melhor tratamento de erros  
+3. Ajuste de responsividade mobile  
+4. Melhorias gerais de performance  
+5. Testes automatizados  
 
 ### Média Prioridade
-1. Funcionalidades de evento (inscrever-se, compartilhar)
-2. Melhorias de performance
-3. Tratamento de erros melhorado
-4. Busca e filtros básicos
-5. Melhorias visuais e de UX
+1. Função de inscrição  
+2. Link de compra  
+3. Modo escuro  
+4. Melhorias de UX  
+5. Acessibilidade  
 
 ### Baixa Prioridade (Futuro)
-1. Funcionalidades avançadas
-2. Sistema de usuários
-3. PWA e notificações
-4. Integrações extras
-5. Funcionalidades opcionais
+1. Funcionalidades avançadas  
+2. PWA e notificações  
+3. Sistema de usuários  
+4. Recomendações  
+5. Integrações extras  
 
 ---
 
 ## Observações
 
-- Este backlog pode ser atualizado conforme o desenvolvimento avança
-- As prioridades podem mudar de acordo com as necessidades do projeto
-- Algumas tarefas podem ser realizadas em conjunto
-- Focar primeiro nas funcionalidades de alta prioridade
+- Todos os itens que já existem no **código final** foram marcados como concluídos.  
+- Funcionalidades que não fazem parte da entrega atual permanecem desmarcadas. 
+- Algumas ideias desmarcadas foram deixadas apenas como itens futuros, pois vão além do escopo solicitado pelo TP.
 
 ---
 
 **Projeto:** EventUp  
 **Curso:** Análise e Desenvolvimento de Sistemas  
 **Data:** 2025
-
